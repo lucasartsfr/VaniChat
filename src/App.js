@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import {useState} from "react";
 import Chat from './Chat';
 
-const socket = io.connect("http://api.lucasarts.fr/websocket/chat" , { path: '/websocket/chat/socket.io'});// transports : ['websocket'], 
+const socket = io.connect("https://api.lucasarts.fr/websocket/chat" , { path: '/websocket/chat/socket.io'});// transports : ['websocket'], 
 
 function App() {
 
