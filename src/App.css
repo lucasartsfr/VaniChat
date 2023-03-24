@@ -1,38 +1,247 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+  --Theme : #0147ff;
+  --Other : #f1f1f1;
+  --BgColor : #f4f6fa; /* #f6f8fc*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App, html, body, #root{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--BgColor);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.JoinContainer{
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 150px;
+}
+
+.JoinContainer input {
+  border: none;
+  padding: 5px 10px;
+  margin: 10px 0px;
+  border-radius: 6px;
+  outline: none;
+  border: 2px solid white;
+  width: 100%;
+}
+
+#RoomId{
+  font-weight: 800;
+}
+
+.JoinContainer input:focus-visible {
+  border: 2px solid var(--Theme);
+  outline: none;
+}
+
+.JoinContainer button{
+  border: none;
+  background-color: var(--Theme);
+  margin: 10px 0px;
+  padding: 5px 10px;
+  color: white;
+  width: 100%;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ChatContainer{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ChatContainer > div:first-child {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-end; */  
+  padding: 10px;
+  overflow-x: hidden;
+}
+
+
+
+.ChatMessage .MessageContent{
+  width: fit-content;
+  max-width: 250px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+  /* word-break: break-all; */
+}
+
+.ChatMessage span {
+  font-size: 6pt;
+}
+
+.ChatMessage{
+  display: flex;
+  flex-direction: row;  
+  margin-bottom: 10px;  
+  animation: Message .4s;
+}
+
+.ChatMessage:hover span{
+  opacity: 1!important;
+}
+
+#other .MessageContent{
+  background-color: white;
+  color: black;
+  align-self: flex-start;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  order: 2;
+}
+
+#other .ChatUser{
+  align-self: flex-start;
+  display: flex;
+}
+
+#other .usericon{
+  order: 1;
+  background-color: rgba(160,160,160,0.7);
+}
+
+#other span{
+  align-self: center;
+  margin-left: 10px;
+  order: 50;
+  transition: .4s;
+  opacity: 0;
+}
+
+.ChatRoom{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ChatHeader{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 1px solid #efefef;
+}
+
+
+.ChatBody {
+  width: 100%;
+  height: 100%;
+}
+
+.ChatFooter{
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.ChatFooter input{
+  background-color: var(--BgColor);
+  width: 98%;
+  border-radius: 100px;
+  padding: 5px 10px;
+  border: none;
+}
+
+.ChatFooter input:focus-visible {
+  outline: none;
+}
+
+.ChatFooter button{
+  background-color: var(--BgColor);
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+#you{
+  justify-content: flex-end;
+}
+
+#you .MessageContent{
+  background-color: var(--Theme);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#you .ChatUser{
+  align-self: flex-end;
+  display: flex;
+}
+
+#you span{
+  align-self: center;
+  margin-right: 10px;
+  opacity: 0;
+  transition: .4s;
+}
+
+#you .usericon{
+  background-color: rgba(1,71,255, 0.5);
+}
+
+
+.usericon {
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1 / 1;
+  border-radius: 100px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 900;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.hide{
+  visibility: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.DateChat.hide{
+  display: none;
+}
+
+@keyframes Message {
+  0%{
+    opacity: 0;
+    transform: translateY(20px);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
